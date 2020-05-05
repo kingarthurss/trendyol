@@ -1,5 +1,7 @@
 package com.boutique.Testcases;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,8 +28,11 @@ public class LoginPageFailTest extends TestBase {
 
 	@Severity(SeverityLevel.BLOCKER)
 	@Test(priority = 1, description = "To Verify get all links")
-	public void loginTest() {
+
+	public void loginTest() throws IOException {
+		loginPageFail.clearcache();
 		loginPageFail.doLoginPageWithFail(prop.getProperty("username"), prop.getProperty("password"));
+		// loginPage.doLogout();
 	}
 
 	@AfterMethod
